@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/servcies/auth.service';
 @Component({
   selector: 'app-login',
@@ -9,12 +10,14 @@ import { AuthService } from 'src/app/servcies/auth.service';
 export class LoginComponent    {
   isHide:Boolean=true;
   usernamereq:boolean=false
+  userminlenght:boolean=false
   passreq:boolean=false
   passlengthmax:boolean=true
   passlengthmin:boolean=false
   loginform=new FormGroup({
     username:new FormControl(null,[
       Validators.required,
+      Validators.minLength(6)
     ]),
       password:new FormControl(null,[
       Validators.required,
@@ -22,11 +25,12 @@ export class LoginComponent    {
       Validators.maxLength(16),
     ]),
   })
-  constructor(private _auth:AuthService){
+  constructor(private _auth:AuthService,private _toaster:ToastrService){
   
   }
   checkusername(data:FormGroup){
     data.get('username')?.errors?.['required']?this.usernamereq=false:this.usernamereq=true
+    data.get('username')?.errors?.['minlength']==undefined?this.userminlenght=true:this.userminlenght=false
     }
   checkpassword(data:FormGroup){
     data.get('password')?.errors?.['required']?this.passreq=false:this.passreq=true
@@ -38,7 +42,11 @@ formvalid(data:FormGroup){
   this.checkpassword(data)
   this._auth.onloging(data.value).subscribe({
     next:(res)=>{console.log(res)
+      console.log(res.username)
       localStorage.setItem('token',res.accessToken)
+      this._toaster.success(`welcome back ${res.firstName} ${res.lastName}`,'login suceessfully')
+    },error:(err)=>{
+      this._toaster.error('not found this account please try the default account or click info',err.error.message,)
     }
   })
 }

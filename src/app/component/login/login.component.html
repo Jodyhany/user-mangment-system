@@ -7,6 +7,38 @@
         </h1>
         <p class="fs-5 fw-semibold">Sign In</p>
         <p>Enter your credentials to access your account</p>
+        <!-- Button trigger modal -->
+      <div class="p-3" >
+        <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          show info
+        </button>
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">APi problem</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-start ">
+             <div>
+             <p>
+              We’re sorry for the inconvenience, but at the moment, the API only supports a specific test account for signing in. Kindly use the following credentials:"
+             </p> 
+              
+              <p> Username: emilys </p> 
+            <p>Password: emilyspass </p> 
+              
+             <p>
+              Thank you for your understandin 
+            </p> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+<!-- Modal -->
         <form [formGroup]="loginform" (submit)="formvalid(loginform)">
           <div>
             <div class="input-group mb-3">
@@ -14,19 +46,21 @@
                 (keyup)="checkusername(loginform)"
                 type="email"
                 class="form-control"
-                placeholder=" enter your email"
+                placeholder=" enter your username"
                 aria-label="email"
                 aria-describedby="basic-addon1"
                 formControlName="username"
               />
               <span class="input-group-text" id="basic-addon1"
-                ><i
-                  [class]="
-                    loginform.get('username')?.valid
-                      ? 'fa-solid fa-envelope'
-                      : 'fa-solid fa-ban'
-                  "
-                ></i>
+                >
+                <i [class]="  loginform.get('username')?.valid
+                ? 'fa-solid fa-user'
+                : 'fa-solid fa-ban'
+            "></i>
+                <i class="px-2" [class]="  loginform.get('username')?.valid
+                ? 'fa-solid fa-circle-check text-success'
+                : 'fa-solid fa-circle-xmark text-danger '
+            "></i>
               </span>
             </div>
           </div>
@@ -40,6 +74,16 @@
                 "
               ></i>
               username required
+            </p>
+            <p>
+              <i
+                [class]="
+                  userminlenght
+                    ? ' fa-solid fa-circle-check text-success'
+                    : 'fa-solid fa-circle-xmark text-danger '
+                "
+              ></i>
+              username must be at least 6
             </p>
           </div>
           <div>
@@ -58,8 +102,12 @@
                   ><i
                     class="fa-solid"
                     [class]="isHide ? 'fa-eye' : 'fa-eye-slash'"
-                  ></i
-                ></span>
+                  ></i>
+                  <i class="px-2" [class]="  loginform.get('password')?.valid
+                  ? 'fa-solid fa-circle-check text-success'
+                  : 'fa-solid fa-circle-xmark text-danger '
+              "></i>
+                </span>
               </span>
             </div>
             <div class="alert text-start">
