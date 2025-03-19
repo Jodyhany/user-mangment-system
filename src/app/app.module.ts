@@ -21,7 +21,6 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({closeButton:true,
-positionClass:'toast-bottom-right'
     }
     ),
   ],
