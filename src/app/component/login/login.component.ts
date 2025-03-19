@@ -37,7 +37,9 @@ formvalid(data:FormGroup){
   this.checkusername(data)
   this.checkpassword(data)
   this._auth.onloging(data.value).subscribe({
-    next:(res)=>{console.log(res)}
+    next:(res)=>{console.log(res)
+      localStorage.setItem('token',res.accessToken)
+    }
   })
 }
 }
