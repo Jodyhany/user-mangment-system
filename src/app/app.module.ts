@@ -20,7 +20,10 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot({closeButton:true}),
+    ToastrModule.forRoot({closeButton:true,
+positionClass:'toast-bottom-right'
+    }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
