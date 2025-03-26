@@ -2,12 +2,8 @@ section{
     background:linear-gradient(#FEAF00,#F8D442);
 }
 
-/* h1::after{
-    position: absolute;
-    content: "";
-    width:4px ;
-    height: 100%;
-    background-color: #F8D442;
-    left:0 ;
-} */
+ h1{border-color: #F8D442!important;}section{
+    background:linear-gradient(#FEAF00,#F8D442);
+}
+
  h1{border-color: #F8D442!important;}

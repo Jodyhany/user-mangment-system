@@ -8,11 +8,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HomeComponent } from './component/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    SidebarComponent,
+    NavbarComponent,
+HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot({closeButton:true,
+    
     }
     ),
   ],

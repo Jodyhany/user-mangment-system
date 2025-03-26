@@ -1,0 +1,12 @@
+.active-link{
+    background-color: #F8D442 ;
+}
+nav{background-color: #F2EAE1;}
+ul{list-style: none;}
+li a{text-decoration: none;
+color: black;}
+
+@media (max-width:770px) {
+    nav{height: fit-content!important;
+    margin-bottom: 2rem;}
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/servcies/auth.service';
 @Component({
@@ -7,6 +8,8 @@ import { AuthService } from 'src/app/servcies/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent    {
   isHide:Boolean=true;
   usernamereq:boolean=false
@@ -25,7 +28,7 @@ export class LoginComponent    {
       Validators.maxLength(16),
     ]),
   })
-  constructor(private _auth:AuthService,private _toaster:ToastrService){
+  constructor(private _auth:AuthService,private _toaster:ToastrService,private _router:Router){
   
   }
   checkusername(data:FormGroup){
@@ -41,15 +44,14 @@ formvalid(data:FormGroup){
   this.checkusername(data)
   this.checkpassword(data)
   this._auth.onloging(data.value).subscribe({
-    next:(res)=>{console.log(res)
-      console.log(res.username)
+    next:(res)=>{
       localStorage.setItem('token',res.accessToken)
       this._toaster.success(`welcome back ${res.firstName} ${res.lastName}`,'login suceessfully')
     },error:(err)=>{
       this._toaster.error('not found this account please try the default account or click info',err.error.message,)
+    },complete:()=>{
+      this._router.navigate(['/home'])
     }
   })
 }
 }
-// emilys
-// emilyspass

@@ -1,0 +1,84 @@
+<section class="container-fluid">
+  <div class="row justify-content-evenly p-2">
+    <p class="col-6 h3">USERS list</p>
+    <div class="text-end col-6">
+      <button class="btn btn-warning text-white text-capitalize">
+        add new user
+      </button>
+    </div>
+  </div>
+  <hr />
+  <div class="table-responsive">
+    <table class="w-100">
+      <thead>
+        <tr>
+          <th class="text-center">name</th>
+          <th class="text-center">email</th>
+          <th class="text-center">phone</th>
+          <th>Enroll Number</th>
+          <th>Date of Birday</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rounded my-5 bg-white p-2">
+          <td class="p-2">
+            {{ fristusers.firstName }} {{ fristusers.lastName }}
+          </td>
+          <td class="p-2 email-cell">{{ fristusers.email }}</td>
+          <td class="p-2">{{ fristusers.phone }}</td>
+          <td class="p-2">{{ fristusers.ssn }}</td>
+          <td class="p-2">{{ fristusers.birthDate }}</td>
+          <td>
+            <a routerLink="#" class="text-warning mx-3">
+              <i class="fa fas fa-trash fs-5"></i>
+            </a>
+          </td>
+          <td>
+            <a routerLink="#" class="text-warning">
+              <i class="fa fas fas fa-pen fs-5"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-responsive my-5">
+    <table class="w-100 text-center">
+      <tbody>
+        <tr
+          class="rounded bg-white"
+          *ngFor="
+            let user of users
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: pstart
+                  }
+          "
+        >
+          <td class="p-2">{{ user.firstName }} {{ user.lastName }}</td>
+          <td class="p-2 email-cell">{{ user.email }}</td>
+          <td class="p-2">{{ user.phone }}</td>
+          <td class="p-2">{{ user.ssn }}</td>
+          <td class="p-2">{{ user.birthDate }}</td>
+          <td>
+            <a routerLink="#" class="text-warning mx-3">
+              <i class="fa fas fa-trash fs-5"></i>
+            </a>
+          </td>
+          <td>
+            <a routerLink="#" class="text-warning">
+              <i class="fa fas fas fa-pen fs-5"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center text-warning">
+      <pagination-controls (pageChange)="pstart = $event"></pagination-controls>
+    </div>
+  </div>
+</section>
+
