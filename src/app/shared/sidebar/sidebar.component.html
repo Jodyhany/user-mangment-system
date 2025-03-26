@@ -1,38 +1,40 @@
-<nav class="container-fluid h-100 navbg d-lg-block
-d-none" >
-<p class="h4 border-warning  border-start fw-bold p-1 border-3 "> UMS</p>
-<div class="my-md-4  d-flex flex-column  align-items-center">
-  <div class="rounded-circle   overflow-hidden " style="width: 10rem;height: 10rem;">
-    <img src="../../../assets/images/profile-img.png" alt="no img" class="w-100 h-100 object-fit-cover">
-  </div>
-  <div >
-    <p class="fs-4 fw-bold p-1">Karthi Madesh</p>
-    <p class="text-warning text-center ">Admin</p>
-  </div>
-  <div >
-    <ul>
-      <li class="fs-6 my-4  " ><a routerLink="#"><i class="fa fas fa-home  mx-3"></i>Home </a></li>
-      <li  class="fs-6 my-4 " ><a routerLink="#"><i class="fa fas far fa-bookmark mx-3"></i>Users</a></li>
-      <li  class="fs-6 my-4 "><a routerLink="#"><i class="fa fas fas fa-plus mx-3"></i>Add User</a></li>
-      <li  class="fs-6 my-4 "><a routerLink="#"><i class="fa fas fa-user mx-3"></i>Profile </a></li>
-    </ul>
-    <div class="text-center">
-      <button (click)="logoutsure=true" button class="fs-6 my-4 bg-danger border-0 p-1 "><i class="fa fas fas fa-sign-out-alt mx-3"></i>LOG OUT</button>
-    </div>
-    <ng-container *ngIf="logoutsure==true">
-      <p>are you sure you want to log out ?</p>
-      <button (click)="logout()" class="btn btn-danger mx-3">log out</button>
-      <button (click)="logoutsure=false" class="btn btn-warning">stay</button>
-    </ng-container>
-  </div>
-</div>
-</nav>
-<!--
+<!-- 
 tablefullwitdh
 d-lg-block
 d-none
 -->
+<nav class="container-fluid h-100 navbg p-3 position-relative d-lg-block
+d-none ">
+  <p class="h3 border-warning  border-start fw-bold  border-3 mb-5 p-1  "> UMS</p>
+  <div class="d-flex justify-content-between align-items-center flex-column h-75 ">
+    <div>
+      <div class="rounded-circle   overflow-hidden " style="width: 10rem;height: 10rem;">
+        <img src="../../../assets/images/profile-img.png" alt="no img" class="w-100 h-100 object-fit-cover">
+      </div>
+      <div class="text-center p-1">
+        <p class="fs-4 fw-bold ">Karthi Madesh</p>
+        <p class="text-warning  ">Admin</p>
+      </div>
+    </div>
+    <div>
+      <ul >
+        <li class="fs-6 my-4  " ><a routerLink="#"><i class="fa fas fa-home  mx-3"></i>Home </a></li>
+        <li  class="fs-6 my-4 " ><a routerLink="#"><i class="fa fas far fa-bookmark mx-3"></i>Users</a></li>
+        <li  class="fs-6 my-4 "><a routerLink="#"><i class="fa fas fas fa-plus mx-3"></i>Add User</a></li>
+        <li  class="fs-6 my-4 "><a routerLink="#"><i class="fa fas fa-user mx-3"></i>Profile </a></li>
+      </ul>
+    </div>
+    <div class=" my-2 ">
+     <button  (click)="logoutsure=true" button class="fs-6  bg-danger border-0 p-1 " ><i class= " fas fa-sign-out-alt mx-3"></i>LOG OUT </button></div>
+      <div class="my-3" *ngIf="logoutsure==true">
+        <p>are you sure you want to log out ?</p>
+        <button (click)="logout()" class="btn btn-danger mx-3">log out</button>
+        <button (click)="logoutsure=false" class="btn btn-warning">stay</button>
+      </div>
+    </div>
 
+
+</nav>
 <!-- nav for smal screens -->
 <button style="background-color: #F8D442;"  class="btn btn  d-lg-none " type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
   <p class="h4 border-warning  border-start fw-bold p-1 border-3 "> UMS</p>
@@ -40,7 +42,7 @@ d-none
 <div class="offcanvas offcanvas-start  navbg text-dark w-75 " tabindex="-1" id="sidebar">
   <div class="offcanvas-header">
       <h5 class="offcanvas-title">UMS</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
       <div class="text-center">

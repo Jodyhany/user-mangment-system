@@ -5,4 +5,5 @@ export interface Users {
     email:string;
     birthDate:string;
     ssn:number;
+    role:string
 }
