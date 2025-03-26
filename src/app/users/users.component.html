@@ -7,7 +7,7 @@
       </button>
     </div>
   </div>
-  <hr />
+  <hr>
   <div class="table-responsive">
     <table class="w-100">
       <thead>
@@ -23,12 +23,12 @@
       <tbody>
         <tr class="rounded my-5 bg-white p-2">
           <td class="p-2">
-            {{ fristusers.firstName }} {{ fristusers.lastName }}
+            {{ fristusers?.firstName }} {{ fristusers?.lastName }}
           </td>
-          <td class="p-2 email-cell">{{ fristusers.email }}</td>
-          <td class="p-2">{{ fristusers.phone }}</td>
-          <td class="p-2">{{ fristusers.ssn }}</td>
-          <td class="p-2">{{ fristusers.birthDate }}</td>
+          <td class="p-2 email-cell">{{ fristusers?.email }}</td>
+          <td class="p-2">{{ fristusers?.phone }}</td>
+          <td class="p-2">{{ fristusers?.ssn }}</td>
+          <td class="p-2">{{ fristusers?.birthDate }}</td>
           <td>
             <a routerLink="#" class="text-warning mx-3">
               <i class="fa fas fa-trash fs-5"></i>

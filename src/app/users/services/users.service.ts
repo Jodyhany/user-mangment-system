@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   constructor(private _http:HttpClient) { }
+    usersearch(search:string):Observable<any>{
+    return this._http.get(`https://dummyjson.com/users/search?q=${search}`)
+  }
   getUsers():Observable<any>{
     return this._http.get('https://dummyjson.com/users')
   }

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+    tablefullwitdh:boolean=false
+    constructor(){
+    console.log  (localStorage.getItem('token'))
+    }
 }

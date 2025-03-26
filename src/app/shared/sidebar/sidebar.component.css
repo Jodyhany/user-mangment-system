@@ -1,7 +1,7 @@
 .active-li{
     background-color: #F8D442 ;
 }
-nav{background-color: #F2EAE1;}
+.navbg{background-color: #F2EAE1!important;}
 ul{list-style: none;}
 li a{text-decoration: none;
 color: black;}

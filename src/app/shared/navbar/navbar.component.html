@@ -1,9 +1,13 @@
-<section class="container">
-<div class="d-flex justify-content-around">
-    <div><i class="fa fas fa-arrow-alt-circle-left"></i></div>
-    <div class="border border-1">
-        <input type="text" class="border-0">
-        <label for=""><i class="fa fas fa-search"></i></label>
+<nav class="container-fluid  p-3">
+    <div class="d-flex justify-content-lg-between justify-content-center">
+        <button (click)="tablefullwitdh=!tablefullwitdh" class="border-0 d-none d-lg-block">
+            <i class="fa fas fas fa-arrow-circle-left fs-5"></i>
+        </button>
+<div>
+    <div  class="border d-flex justify-content-center">
+        <input type="text" id="search" class="border-0 p-2 " placeholder="search user" >
+        <label class="text-end" for="search"><i class="fa fas fa-search mx-3 mt-3"></i></label>
     </div>
 </div>
-</section>
+    </div>
+</nav>
