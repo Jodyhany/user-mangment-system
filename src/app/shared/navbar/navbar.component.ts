@@ -8,6 +8,5 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
     tablefullwitdh:boolean=false
     constructor(){
-    console.log  (localStorage.getItem('token'))
     }
 }

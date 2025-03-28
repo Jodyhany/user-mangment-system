@@ -1,4 +1,4 @@
-.active-li{
+.active-li,ul li:hover a{
     background-color: #F8D442 ;
 }
 .navbg{background-color: #F2EAE1!important;}

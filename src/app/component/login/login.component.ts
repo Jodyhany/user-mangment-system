@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { FormControl, FormGroup,  Validators } from '@angular/forms';
+import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/servcies/auth.service';
 @Component({
@@ -45,7 +45,14 @@ formvalid(data:FormGroup){
   this.checkpassword(data)
   this._auth.onloging(data.value).subscribe({
     next:(res)=>{
+      console.log(res.role)
       localStorage.setItem('token',res.accessToken)
+      localStorage.setItem('fName',res.firstName)
+      localStorage.setItem('lName',res.lastName)
+      localStorage.setItem('username',res.username)
+      localStorage.setItem('email',res.email)
+      localStorage.setItem('gender',res.gender)
+      localStorage.setItem('img',res.image)
       this._toaster.success(`welcome back ${res.firstName} ${res.lastName}`,'login suceessfully')
     },error:(err)=>{
       this._toaster.error('not found this account please try the default account or click info',err.error.message,)

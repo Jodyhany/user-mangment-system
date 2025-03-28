@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
-import {  Users,  } from './interface/users';
+import {  Users} from './interface/users';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -11,14 +11,20 @@ constructor(private _userservies:UsersService){}
 pstart:number=1
 users:Users[]=[]
 fristusers:|any
-search:string='Michael '
+search:string=''
 ngOnInit(): void {
-this._userservies.usersearch(this.search).subscribe({next:(res)=>{console.log(res)}})
+this.getallusers()
+this.getusersearch()
+}
+getusersearch(){
+  this._userservies.usersearch(this.search).subscribe({next:(res)=>{console.log(res)}})
   this._userservies.getuser().subscribe({
     next:(res)=>{
      this.fristusers=res
       }
   })
+}
+getallusers(){
   this._userservies.getUsers().subscribe({
     next:(res)=>{
       this.users=res.users

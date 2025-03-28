@@ -1,0 +1,165 @@
+    <section class="container">
+    <p class="fw-bold h1">add user</p>
+    <hr />
+    <div class="vh-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-md-10 mx-auto">
+            <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
+            <div class="row bg-white p-3">
+                <div class="col-md-12">
+                <label for="fname">image</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('image')?.status=='INVALID'?' bg-danger':'bg-success'"
+                    id="image"
+                    formControlName="image"
+                    type="file"
+                    class="form-control"
+                    placeholder="Enter your First Name"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="fname">frist name</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('firstName')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    id="fname"
+                    formControlName="firstName"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your First Name"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="lname">last name</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('lastName')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    type="text"
+                    formControlName="lastName"
+                    id="lname"
+                    class="form-control"
+                    placeholder="Enter your Last Name"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="email">email</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('email')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    type="email"
+                    id="email"
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="Enter your Email"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="age">Age</label>
+                <div class="input-group mb-3">
+
+                    <input 
+                    [classList]="userform.get('age')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    type="number"
+                    id="age"
+                    formControlName="age"
+                    class="form-control"
+                    placeholder="Enter your  age"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="phone number">phone number</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('phone')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    type="text"
+                    id="phone number"
+                    formControlName="phone"
+                    class="form-control"
+                    placeholder="Enter your Phone Number"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="birthDate">birthDate</label>
+                <div class="input-group mb-3">
+                    <input 
+                    [classList]="userform.get('birthDate')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    type="text"
+                    class="form-control"
+                    formControlName="birthDate"
+                    id="birthDate "
+                    placeholder="Enter Your birthDate"
+                    aria-label="Enter your birth Date"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <div class="col-md-6">
+                <label for="Username">username</label>
+                <div class="input-group mb-3">
+                    <input
+                    [classList]="userform.get('userName')?.status=='INVALID'?'border-1 border-danger':'border-success'" 
+                    type="text"
+                    class="form-control"
+                    id="Username "
+                    formControlName="userName"
+                    placeholder="Enter Your username"
+                    aria-label="Enter your birth Date"
+                    aria-describedby="basic-addon1"
+                    />
+                </div>
+                </div>
+                <!-- هشيلها لما اعمل ايديت -->
+                <div class="col-md-6">
+                <label for="gender">gender</label>
+                <div class="input-group mb-3">
+                    <select
+                    [classList]="userform.get('gender')?.status=='INVALID'?'border-1 border-danger':'border-success'" 
+                    name="gender"
+                    id="gender"
+                    class="p-2 border-0 w-100"
+                    formControlName="gender"
+                    >
+                    <option value="none" name="gender" disabled selected>
+                        select your gender
+                    </option>
+                    <option value="male" class="bg-white" name="gender">
+                        male
+                    </option>
+                    <option value="female" class="bg-white" name="gender">
+                        female
+                    </option>
+                    </select>
+                </div>
+                </div>
+                <div class="col-md-12">
+                <div class="input-group mb-3 justify-content-center my-2">
+                    <button class="btn btn-warning w-50 text-white p-2">
+                    save
+                    </button>
+                </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </section>
