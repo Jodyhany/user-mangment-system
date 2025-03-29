@@ -45,7 +45,6 @@ formvalid(data:FormGroup){
   this.checkpassword(data)
   this._auth.onloging(data.value).subscribe({
     next:(res)=>{
-      console.log(res.role)
       localStorage.setItem('token',res.accessToken)
       localStorage.setItem('fName',res.firstName)
       localStorage.setItem('lName',res.lastName)

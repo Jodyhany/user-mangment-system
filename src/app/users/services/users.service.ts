@@ -14,6 +14,9 @@ export class UsersService {
   Adduser(data:FormGroup):Observable<any>{
    return this._http.post(`https://dummyjson.com/users/add`,data)
   }
+  UpdateUser(id:number,data:FormGroup):Observable<any>{
+   return this._http.put(`https://dummyjson.com/users/${id}`,data)
+  }
     usersearch(search:string):Observable<any>{
     return this._http.get(`https://dummyjson.com/users/search?q=${search}`)
   }
@@ -23,4 +26,10 @@ export class UsersService {
   getuser():Observable<any>{
     return this._http.get('https://dummyjson.com/users/1')
   }
-}
+  getuserbyid(id:number):Observable<any>{
+    return this._http.get(`https://dummyjson.com/users/${id}`)
+  }
+  userDeleate(id:number):Observable<any>{
+    return this._http.delete(`https://dummyjson.com/users/${id}`)
+  }
+  }

@@ -1,5 +1,7 @@
 input,select{
 background-color: #E5E5E5;
 outline: none;
+padding: 0.5rem;
+width: 75%;
 }
 label{color: #6C6C6C;}

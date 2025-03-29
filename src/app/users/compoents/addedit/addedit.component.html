@@ -1,12 +1,12 @@
     <section class="container">
-    <p class="fw-bold h1">add user</p>
+    <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
     <hr />
-    <div class="vh-100">
-        <div class="row h-100 align-items-center">
-        <div class="col-md-10 mx-auto">
+    <div class=" p-2 ">
+        <div class="row">
+        <div class="col-md-6 mx-auto bg-white w-75">
             <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
-            <div class="row bg-white p-3">
-                <div class="col-md-12">
+            <div class="row  p-3 mx-auto">
+                <div class="col-md-12 " *ngIf="!userid">
                 <label for="fname">image</label>
                 <div class="input-group mb-3">
                     <input 
@@ -14,7 +14,7 @@
                     id="image"
                     formControlName="image"
                     type="file"
-                    class="form-control"
+                    class="form-control  "
                     placeholder="Enter your First Name"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
@@ -29,7 +29,7 @@
                     id="fname"
                     formControlName="firstName"
                     type="text"
-                    class="form-control"
+                    class="form-control "
                     placeholder="Enter your First Name"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
@@ -112,7 +112,7 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" *ngIf="!userid">
                 <label for="Username">username</label>
                 <div class="input-group mb-3">
                     <input
@@ -128,7 +128,7 @@
                 </div>
                 </div>
                 <!-- هشيلها لما اعمل ايديت -->
-                <div class="col-md-6">
+                <div class="col-md-6" *ngIf="!userid">
                 <label for="gender">gender</label>
                 <div class="input-group mb-3">
                     <select
@@ -150,10 +150,10 @@
                     </select>
                 </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" >
                 <div class="input-group mb-3 justify-content-center my-2">
                     <button class="btn btn-warning w-50 text-white p-2">
-                    save
+                    {{userid?'update':'Add'}} User
                     </button>
                 </div>
                 </div>

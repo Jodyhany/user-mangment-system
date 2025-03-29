@@ -1,10 +1,10 @@
 
-.email-cell {
+/* .email-cell {
   word-break: break-word;
   white-space: normal;
   overflow-wrap: break-word;
-}
+*/
 table {
   border-spacing: 0 1rem;
   border-collapse: separate;
-}
+} 

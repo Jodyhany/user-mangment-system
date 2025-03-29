@@ -8,9 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  constructor(private _toaster:ToastrService,private _router:Router){
-    console.log(localStorage.getItem('fName'))
-  }
+  constructor(private _toaster:ToastrService,private _router:Router){}
   fristname:string|any=localStorage.getItem('fName')
   lastname:string|any=localStorage.getItem('lName')
   fullname:string|any=`${this.fristname} ${this.lastname}`
@@ -24,5 +22,12 @@ export class SidebarComponent {
     this._toaster.error('you have been logout',"logout")
     this._router.navigate(['/login']); 
     localStorage.removeItem('token')
+    localStorage.removeItem('token')
+    localStorage.removeItem('fName')
+    localStorage.removeItem('lName')
+    localStorage.removeItem('username')
+    localStorage.removeItem('email')
+    localStorage.removeItem('gender')
+    localStorage.removeItem('img')
   }
 }
