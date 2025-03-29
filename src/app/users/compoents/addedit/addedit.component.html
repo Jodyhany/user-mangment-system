@@ -4,13 +4,13 @@
     <div class=" p-2 ">
         <div class="row">
         <div class="col-md-6 mx-auto bg-white w-75">
-            <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
+         <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
             <div class="row  p-3 mx-auto">
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="fname">frist name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [classList]="userform.get('firstName')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('firstName')?.status=='INVALID'?'border-danger':'border-success'"
                     id="fname"
                     formControlName="firstName"
                     type="text"
@@ -21,11 +21,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="lname">last name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [classList]="userform.get('lastName')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('lastName')?.status=='INVALID'?'border-1 border-danger':'border-success'"
                     type="text"
                     formControlName="lastName"
                     id="lname"
@@ -36,11 +36,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="email">email</label>
                 <div class="input-group mb-3">
                     <input 
-                    [classList]="userform.get('email')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('email')?.status=='INVALID'?'border-1 border-danger':'border-success'"
                     type="email"
                     id="email"
                     formControlName="email"
@@ -51,12 +51,12 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="age">Age</label>
                 <div class="input-group mb-3">
 
                     <input 
-                    [classList]="userform.get('age')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('age')?.status=='INVALID'?'border-1 border-danger':'border-success'"
                     type="number"
                     id="age"
                     formControlName="age"
@@ -67,11 +67,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="phone number">phone number</label>
                 <div class="input-group mb-3">
                     <input 
-                    [classList]="userform.get('phone')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('phone')?.status=='INVALID'?'border-1 border-danger':'border-success'"
                     type="text"
                     id="phone number"
                     formControlName="phone"
@@ -82,11 +82,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 my-3">
                 <label for="birthDate">birthDate</label>
                 <div class="input-group mb-3">
                     <input 
-                    [classList]="userform.get('birthDate')?.status=='INVALID'?'border-1 border-danger':'border-success'"
+                    [class]="userform.get('birthDate')?.status=='INVALID'?'border-1 border-danger':'border-success'"
                     type="text"
                     class="form-control"
                     formControlName="birthDate"
@@ -97,11 +97,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6" *ngIf="!userid">
+                <div class="col-md-6 my-3" *ngIf="!userid">
                 <label for="Username">username</label>
                 <div class="input-group mb-3">
                     <input
-                    [classList]="userform.get('userName')?.status=='INVALID'?'border-1 border-danger':'border-success'" 
+                    [class]="userform.get('userName')?.status=='INVALID'?'border-1 border-danger':'border-success'" 
                     type="text"
                     class="form-control"
                     id="Username "
@@ -112,11 +112,11 @@
                     />
                 </div>
                 </div>
-                <div class="col-md-6" *ngIf="!userid">
+                <div class="col-md-6 my-3" *ngIf="!userid">
                 <label for="gender">gender</label>
                 <div class="input-group mb-3">
                     <select
-                    [classList]="userform.get('gender')?.status=='INVALID'?'border-1 border-danger':'border-success'" 
+                    [class]="userform.get('gender')?.status=='INVALID'?'border-danger':'border-success'" 
                     name="gender"
                     id="gender"
                     class="p-2 border-0 w-100"
@@ -134,7 +134,7 @@
                     </select>
                 </div>
                 </div>
-                <div class="col-md-12" >
+                <div class="col-md-12  " >
                 <div class="input-group mb-3 justify-content-center my-2">
                     <button class="btn btn-warning w-50 text-white p-2">
                     {{userid?'update':'Add'}} User
@@ -142,7 +142,7 @@
                 </div>
                 </div>
             </div>
-            </form>
+            </form> 
         </div>
         </div>
     </div>
