@@ -1,6 +1,6 @@
 <section class="container-fluid">
 <form  class="border d-flex justify-content-end bg-white border-1" (submit)="getuserdata()">
-    <input type="text" id="search" class="border-1  " placeholder="search user" [(ngModel)]="search" name="serch">
+    <input type="text" id="search" class="border-1  " placeholder="search user" [(ngModel)]="search" name="search" (keypress)="getuserdata()">
     <button class="text-end" for="search"><i class="fa fas fa-search"></i></button>
 </form>
 

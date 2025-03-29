@@ -52,10 +52,9 @@ getallusers(){
 }
 getuserdata(){
   this._userservies.usersearch(this.search).subscribe({
-    next:(res)=>{console.log(res.users)
+    next:(res)=>{
       this.userssearch=res.users
     }
   })
-  console.log(this.search)
 }
 }

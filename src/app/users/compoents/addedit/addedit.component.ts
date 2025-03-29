@@ -17,7 +17,7 @@ export class AddeditComponent  implements OnInit{
     lastName:new FormControl(null,[Validators.required,]),
     email:new FormControl(null,[Validators.required,]),
     gender:new FormControl(null,[Validators.required,]),
-    image:new FormControl(null,[Validators.required,]),
+    image:new FormControl(null),
     userName:new FormControl(null,[Validators.required,]),
     phone:new FormControl(null,[Validators.required,]),
     birthDate:new FormControl(null,[Validators.required,]),
@@ -53,11 +53,12 @@ this._userservices.getuserbyid(this.userid).subscribe({
 
 }
 Adduser(data:FormGroup){
+  console.log(data)
   if(data.status==='INVALID'){
        this._Toastr.error('check your data','INVALID data') }
        else{
   this._userservices.Adduser(data.value).subscribe({
-    next:()=>{},error:(error)=>{
+    next:(res)=>{},error:(error)=>{
       this._Toastr.error(error,"something went wrong")
     },complete:()=> {
       this._Toastr.success('new user Added' ,'success')
