@@ -1,4 +1,9 @@
 <section class="container-fluid">
+<form  class="border d-flex justify-content-end bg-white border-1" (submit)="getuserdata()">
+    <input type="text" id="search" class="border-1  " placeholder="search user" [(ngModel)]="search" name="serch">
+    <button class="text-end" for="search"><i class="fa fas fa-search"></i></button>
+</form>
+
   <div class="row justify-content-evenly p-2">
     <p class="col-6 fw-bold h1">User List</p>
     <div class="text-end col-6">
@@ -21,6 +26,7 @@
         </tr>
       </thead>
       <tbody>
+        
         <tr class="rounded bg-white ">
           <td class="p-2">
             {{ fristusers?.firstName }} {{ fristusers?.lastName }}
@@ -31,33 +37,67 @@
           <td class="p-2">{{ fristusers?.birthDate }}</td>
         
         </tr>
-        <tr
-        class="rounded bg-white"
-        *ngFor="
-          let user of users
-            | paginate
-              : {
-                  itemsPerPage: 5,
-                  currentPage: pstart
-                }
-        "
-      >
-        <td class="p-2">{{ user.firstName }} {{ user.lastName }}</td>
-        <td class="p-2 email-cell">{{ user.email }}</td>
-        <td class="p-2">{{ user.phone }}</td>
-        <td class="p-2">{{ user.ssn }}</td>
-        <td class="p-2">{{ user.birthDate }}</td>
-        <td>
-          <a   [routerLink]="['edit',user.id]" class="text-warning">
-            <i class="fa fas fas fa-pen fs-5"></i>
-          </a>
-        </td>
-        <td>
-          <button  (click)="DELETEuser(user.id)"  class="text-warning mx-3 border-0 bg-white">
-            <i class="fa fas fa-trash fs-5"></i>
-          </button>
-        </td>
-      </tr>
+        <ng-container *ngIf="search!==''; else defaultUsers">
+          <ng-container *ngIf="userssearch.length===0;">
+            <p  class="text-center" > no users found</p>
+          </ng-container>
+          <tr
+          class="rounded bg-white"
+          *ngFor="
+            let user of userssearch
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: pstart
+                  }
+          "
+        >
+          <td class="p-2">{{ user.firstName }} {{ user.lastName }}</td>
+          <td class="p-2 email-cell">{{ user.email }}</td>
+          <td class="p-2">{{ user.phone }}</td>
+          <td class="p-2">{{ user.ssn }}</td>
+          <td class="p-2">{{ user.birthDate }}</td>
+          <td>
+            <a   [routerLink]="['edit',user.id]" class="text-warning">
+              <i class="fa fas fas fa-pen fs-5"></i>
+            </a>
+          </td>
+          <td>
+            <button  (click)="DELETEuser(user.id)"  class="text-warning mx-3 border-0 bg-white">
+              <i class="fa fas fa-trash fs-5"></i>
+            </button>
+          </td>
+        </tr>
+        </ng-container>
+        <ng-template #defaultUsers>
+          <tr
+          class="rounded bg-white"
+          *ngFor="
+            let user of users
+              | paginate
+                : {
+                    itemsPerPage: 5,
+                    currentPage: pstart
+                  }
+          "
+        >
+          <td class="p-2">{{ user.firstName }} {{ user.lastName }}</td>
+          <td class="p-2 email-cell">{{ user.email }}</td>
+          <td class="p-2">{{ user.phone }}</td>
+          <td class="p-2">{{ user.ssn }}</td>
+          <td class="p-2">{{ user.birthDate }}</td>
+          <td>
+            <a   [routerLink]="['edit',user.id]" class="text-warning">
+              <i class="fa fas fas fa-pen fs-5"></i>
+            </a>
+          </td>
+          <td>
+            <button  (click)="DELETEuser(user.id)"  class="text-warning mx-3 border-0 bg-white">
+              <i class="fa fas fa-trash fs-5"></i>
+            </button>
+          </td>
+        </tr> 
+        </ng-template>
       </tbody>
     </table>
   </div>

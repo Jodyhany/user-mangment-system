@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './component/home/home.component';
 import { SharedModule } from './shared/shared/shared.module';
 @NgModule({
@@ -17,7 +16,6 @@ import { SharedModule } from './shared/shared/shared.module';
     AppComponent,
     LoginComponent,
     SidebarComponent,
-    NavbarComponent,
 HomeComponent
   ],
   imports: [

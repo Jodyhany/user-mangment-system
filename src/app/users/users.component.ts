@@ -7,7 +7,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
 export class UsersComponent implements OnInit {
+  
 constructor(private _userservies:UsersService,
   private _toaster:ToastrService,
 ){}
@@ -15,10 +17,10 @@ pstart:number=1
 users:Users[]=[]
 fristusers:|any
 search:string=''
+userssearch:Users[]=[]
 ngOnInit(): void {
 this.getallusers()
 this.getusersearch()
-// 
 }
 DELETEuser(userid:number){
   console.log(userid)
@@ -47,5 +49,13 @@ getallusers(){
       this.users=res.users
     }
   })
+}
+getuserdata(){
+  this._userservies.usersearch(this.search).subscribe({
+    next:(res)=>{console.log(res.users)
+      this.userssearch=res.users
+    }
+  })
+  console.log(this.search)
 }
 }

@@ -1,4 +1,4 @@
-    <section class="container">
+    <section class="container-fluid">
     <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
     <hr />
     <div class=" p-2 ">
@@ -6,21 +6,6 @@
         <div class="col-md-6 mx-auto bg-white w-75">
             <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
             <div class="row  p-3 mx-auto">
-                <div class="col-md-12 " *ngIf="!userid">
-                <label for="fname">image</label>
-                <div class="input-group mb-3">
-                    <input 
-                    [classList]="userform.get('image')?.status=='INVALID'?' bg-danger':'bg-success'"
-                    id="image"
-                    formControlName="image"
-                    type="file"
-                    class="form-control  "
-                    placeholder="Enter your First Name"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                    />
-                </div>
-                </div>
                 <div class="col-md-6">
                 <label for="fname">frist name</label>
                 <div class="input-group mb-3">
@@ -127,7 +112,6 @@
                     />
                 </div>
                 </div>
-                <!-- هشيلها لما اعمل ايديت -->
                 <div class="col-md-6" *ngIf="!userid">
                 <label for="gender">gender</label>
                 <div class="input-group mb-3">

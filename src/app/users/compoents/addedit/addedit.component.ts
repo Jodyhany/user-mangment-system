@@ -84,19 +84,3 @@ if(this.userid){
 }  else{this.Adduser(this.userform)}
 
 }}
-
-// if(data.status==='INVALID'){
-//     this._Toastr.error('check your data','INVALID data')
-// } else{
-
-//   if(this.userid){
-
-//   } else{this.Adduser(data)}
-   
-// }
-
-//   }
-
- 
-// }
-// عايز اقسمهم اتنين فانكشن جوا الsend data 

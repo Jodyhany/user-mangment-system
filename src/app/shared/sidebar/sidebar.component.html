@@ -38,7 +38,7 @@ d-none
           <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fas fa-plus mx-3"></i>Add User</a>
         </li>
         <li class="fs-6 my-4 p-1">
-          <a routerLink="/home/users/profile" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
+          <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
         </li>
       </ul>
     </div>
@@ -105,7 +105,7 @@ d-none
         <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fas fa-plus mx-3"></i>Add User</a>
       </li>
       <li class="fs-6 my-4 p-1">
-        <a routerLink="/home/users/profile" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
+        <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
       </li>
     </ul>
     <div class="text-center">

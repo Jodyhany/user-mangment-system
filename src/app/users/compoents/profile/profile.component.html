@@ -3,14 +3,15 @@
         <h2 class="fw-bold">profile</h2>
         <hr>
     </div>
-    <form action="#" class="  vh-100 d-flex align-items-center justify-content-center  ">
+    <form action="#" class="  vh-100 d-flex align-items-center justify-content-center  " [formGroup]="showinfo">
         <div class="row bg-white p-2 shadow rounded mx-auto  w-75">
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
-            <div class="col-md-6 my-3"> <label for="">first name</label> <input class="w-100" type="text"></div>
+            <div class="col-md-6 my-3"> <label for="First Name">First Name</label> <input  formControlName="firstName"   class="w-100 p-2" type="text" ></div>
+            <div class="col-md-6 my-3"> <label for="last name">last name</label> <input  formControlName="lastName" class="w-100 p-2" type="text"></div>
+            <div class="col-md-6 my-3"> <label for="Email">Email</label> <input  formControlName="email" class="w-100 p-2" type="email"></div>
+            <div class="col-md-6 my-3"> <label for="Age">Age</label> <input  formControlName="age" class="w-100 p-2" type="number"></div>
+            <div class="col-md-6 my-3"> <label for="Phone Number">Phone Number</label> <input  formControlName="phone" class="w-100 p-2" type="text"></div>
+            <div class="col-md-6 my-3"> <label for="birth Date">birth Date</label> <input  formControlName="birthDate" class="w-100 p-2" type="text"></div>
+            <div class="col-md-12 text-center my-3"><a routerLink="/home/users" class="btn btn-warning w-50 text-white">show all users</a>  </div>
         </div>
     </form>
 </section>

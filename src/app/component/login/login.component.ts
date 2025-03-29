@@ -28,9 +28,7 @@ export class LoginComponent    {
       Validators.maxLength(16),
     ]),
   })
-  constructor(private _auth:AuthService,private _toaster:ToastrService,private _router:Router){
-  
-  }
+  constructor(private _auth:AuthService,private _toaster:ToastrService,private _router:Router){}
   checkusername(data:FormGroup){
     data.get('username')?.errors?.['required']?this.usernamereq=false:this.usernamereq=true
     data.get('username')?.errors?.['minlength']==undefined?this.userminlenght=true:this.userminlenght=false
@@ -46,6 +44,7 @@ formvalid(data:FormGroup){
   this._auth.onloging(data.value).subscribe({
     next:(res)=>{
       localStorage.setItem('token',res.accessToken)
+      localStorage.setItem('id',res.id)
       localStorage.setItem('fName',res.firstName)
       localStorage.setItem('lName',res.lastName)
       localStorage.setItem('username',res.username)
