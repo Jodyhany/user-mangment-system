@@ -1,3 +1,5 @@
+    <!--   فاضل هنا -->
+    
     <section class="container">
     <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
     <hr />
@@ -6,12 +8,11 @@
         <div class="col-md-6 mx-auto bg-white w-75">
             <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
             <div class="row  p-3 mx-auto">
-    
                 <div class="col-md-6">
                 <label for="fname">frist name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('firstName')?.status=='INVALID'?' border-danger':'border-success'"
+                    [class]="userform.status=='INVALID' ?'border-danger':'border-success'"
                     id="fname"
                     formControlName="firstName"
                     type="text"

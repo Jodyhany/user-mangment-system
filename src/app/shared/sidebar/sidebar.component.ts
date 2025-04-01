@@ -22,7 +22,6 @@ export class SidebarComponent implements OnDestroy {
     this.logout()
   }
   logout(){
-    this._toaster.error('you have been logout',"logout")
     this._router.navigate(['/login']); 
     localStorage.removeItem('token')
     localStorage.removeItem('token')

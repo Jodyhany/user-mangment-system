@@ -1,58 +1,56 @@
-<!-- 
-tablefullwitdh
-d-lg-block
-d-none
--->
-<nav
-  class="container-fluid h-100 navbg p-3 position-relative d-lg-block d-none"
+
+<nav 
+  class=" h-100  navbg p-3 position-relative d-lg-block d-none"
 >
-  <p class="h3 border-warning border-start fw-bold border-3 mb-5 p-1">UMS</p>
-  <div
-    class="d-flex justify-content-between align-items-center flex-column h-75"
-  >
-    <div>
-      <div
-        class="rounded-circle overflow-hidden"
-        style="width: 10rem; height: 10rem"
-      >
-        <img
-          src="../../../assets/images/profile-img.png"
-          [alt]="fullname"
-          class="w-100 h-100 object-fit-cover"
-        />
-      </div>
-      <div class="text-center p-1">
-        <p class="fs-4 fw-bold">{{ fullname }}</p>
-        <p class="text-warning">Admin</p>
-      </div>
-    </div>
-    <div>
-      <ul class="p-2">
-        <li class="fs-6 my-4 ">
-          <a routerLink="/home" class="p-2 " [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li" ><i class="fa fas fa-home mx-3"></i>Home </a>
-        </li>
-        <li class="fs-6 my-4 ">
-          <a routerLink="/home/users" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas far fa-bookmark mx-3"></i>Users</a>
-        </li>
-        <li class="fs-6 my-4 p-1">
-          <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fas fa-plus mx-3"></i>Add User</a>
-        </li>
-        <li class="fs-6 my-4 p-1">
-          <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
-        </li>
-      </ul>
-    </div>
-    <div class="my-2">
-      <button (click)="logoutsure = !logoutsure" [ngClass]="{'bg-danger':logoutsure}" class="fs-6 border-0 p-2">
-        LOG OUT<i class="fas fa-sign-out-alt mx-3"></i>
-      </button>
-    </div>
-    <div class="my-3" *ngIf="logoutsure == true">
-      <p>are you sure you want to log out ?</p>
-      <button (click)="logout()" class="btn btn-danger mx-3 text-dark">log out</button>
-      <button (click)="logoutsure = false" class="btn btn-warning">stay</button>
-    </div>
+<!--  start logo -->
+<p class="h3 border-warning border-start fw-bold border-3 mb-5 p-1">UMS</p>
+<!--  end logo -->
+ <!--  start info -->
+  <div class="d-flex justify-content-center text-center flex-column p-4" >
+    <img class="rounded-circle " src="../../../assets/images/profile-img.png" [alt]="username">
+    <!--  start text -->
+     <div class="my-4" >
+      <p class="fs-4 fw-bold">{{ fullname }}</p>
+      <p class="text-warning">Admin</p>
+     </div>
   </div>
+ <!-- end info -->
+  <!--  start ul -->
+  <ul class="mx-3 ">
+    <li class="fs-6 my-4 ">
+      <a routerLink="/home" class="p-2 " [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li" ><i class="fa-regular fa-home mx-3"></i>Home </a>
+    </li>
+    <li class="fs-6 my-4 ">
+      <a routerLink="/home/users" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular far fa-bookmark mx-3"></i>Users</a>
+    </li>
+    <li class="fs-6 my-4 p-1">
+      <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fas fa-plus mx-3"></i>Add User</a>
+    </li>
+    <li class="fs-6 my-4 p-1">
+      <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fa-user mx-3"></i>Profile </a>
+    </li >
+  </ul>
+  <!-- end ul -->
+   <!-- start btn -->
+    <div class="text-center my-5">
+      <button class="border-0 navbg" (click)="logoutsure=!logoutsure">Logout <i class="fas fa-sign-out-alt mx-3"></i> </button>
+    </div>
+      <!-- end btn -->
+       <!-- start close -->
+         <div class="text-center" *ngIf="logoutsure == true">
+           <p class="h5">
+             any unsaved data maybe be lose
+           </p>
+           <div class="p-2 ">
+             <button (click)="logout()" class="mx-2 border-0 text-white bg-danger">
+              yes
+             </button>
+             <button (click)="logoutsure=false" class="mx-2 border-0  border-1">
+               no
+             </button>
+           </div>
+         </div>
+       <!-- start close -->
 </nav>
 <!-- nav for smal screens -->
 <button
@@ -63,7 +61,6 @@ d-none
   aria-controls="sidebar"
 >
 <i class="fa-solid fa-bars fs-1 bg-warning p-2 rounded-4"></i>
-  <!-- <p class="h4 border-warning border-start fw-bold p-1 border-3">UMS</p> -->
 </button>
 <div
   class="offcanvas offcanvas-start navbg text-dark w-75"
@@ -96,31 +93,35 @@ d-none
     </div>
     <ul class="p-2">
       <li class="fs-6 my-4 ">
-        <a routerLink="/home" class="p-2 " [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li" ><i class="fa fas fa-home mx-3"></i>Home </a>
+        <a routerLink="/home" class="p-2 " [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li" ><i class="fa-regular fa-home mx-3"></i>Home </a>
       </li>
       <li class="fs-6 my-4 ">
-        <a routerLink="/home/users" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas far fa-bookmark mx-3"></i>Users</a>
+        <a routerLink="/home/users" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular far fa-bookmark mx-3"></i>Users</a>
       </li>
       <li class="fs-6 my-4 p-1">
-        <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fas fa-plus mx-3"></i>Add User</a>
+        <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fas fa-plus mx-3"></i>Add User</a>
       </li>
       <li class="fs-6 my-4 p-1">
-        <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa fas fa-user mx-3"></i>Profile </a>
+        <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fa-user mx-3"></i>Profile </a>
       </li>
     </ul>
     <div class="text-center">
-      <button (click)="logoutsure = !logoutsure" [ngClass]="{'bg-danger':logoutsure}" class="fs-6 border-0 p-2">
+      <button (click)="logoutsure =  !logoutsure" class="fs-6 border-0 p-2 navbg">
         LOG OUT<i class="fas fa-sign-out-alt mx-3"></i>
       </button>
     </div>
-    <ng-container *ngIf="logoutsure == true">
-      <div class="text-center text-dark">
-        <p>Are you sure you want to log out?</p>
-        <button (click)="logout()" class="btn btn-danger mx-3">Log out</button>
-        <button (click)="logoutsure = false" class="btn btn-warning">
-          Stay
+    <div class="text-center" *ngIf="logoutsure == true">
+      <p class="h5">
+        any unsaved data maybe be lose
+      </p>
+      <div class="p-2 ">
+        <button (click)="logout()" class="mx-2 border-0 text-white bg-danger">
+         yes
+        </button>
+        <button (click)="logoutsure=false" class="mx-2 border-0  border-1">
+          no
         </button>
       </div>
-    </ng-container>
+    </div>
   </div>
 </div>

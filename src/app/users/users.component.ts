@@ -12,15 +12,25 @@ export class UsersComponent implements OnInit {
   
 constructor(private _userservies:UsersService,
   private _toaster:ToastrService,
-){}
+){
+}
 pstart:number=1
 users:Users[]=[]
-fristusers:|any
+ CurUser:string|any=localStorage.getItem('id')
+AdminUser:any
 search:string=''
 userssearch:Users[]=[]
 ngOnInit(): void {
+  this.GetcurentUser()
 this.getallusers()
-this.getusersearch()
+}
+GetcurentUser(){
+  this._userservies.getuserbyid(this.CurUser).subscribe({
+    next:(res)=>{
+     this.AdminUser=res
+     console.log(this.AdminUser)
+    }
+  })
 }
 DELETEuser(userid:number){
   console.log(userid)
@@ -35,14 +45,7 @@ DELETEuser(userid:number){
   })
 
 }
-getusersearch(){
-  this._userservies.usersearch(this.search).subscribe({next:(res)=>{}})
-  this._userservies.getuser().subscribe({
-    next:(res)=>{
-     this.fristusers=res
-      }
-  })
-}
+
 getallusers(){
   this._userservies.getUsers().subscribe({
     next:(res)=>{
@@ -51,9 +54,11 @@ getallusers(){
   })
 }
 getuserdata(){
+  console.log(this.search)
   this._userservies.usersearch(this.search).subscribe({
     next:(res)=>{
       this.userssearch=res.users
+      console.log(this.userssearch)
     }
   })
 }
