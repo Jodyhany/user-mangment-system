@@ -58,7 +58,6 @@ getuserdata(){
   this._userservies.usersearch(this.search).subscribe({
     next:(res)=>{
       this.userssearch=res.users
-      console.log(this.userssearch)
     }
   })
 }

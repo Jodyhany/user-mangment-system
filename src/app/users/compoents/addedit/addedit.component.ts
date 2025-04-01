@@ -53,7 +53,6 @@ this._userservices.getuserbyid(this.userid).subscribe({
 
 }
 Adduser(data:FormGroup){
-  console.log(data)
   if(data.status==='INVALID'){
        this._Toastr.error('check your data','INVALID data') }
        else{

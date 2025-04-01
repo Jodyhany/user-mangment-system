@@ -31,5 +31,6 @@ export class SidebarComponent implements OnDestroy {
     localStorage.removeItem('email')
     localStorage.removeItem('gender')
     localStorage.removeItem('img')
+    localStorage.removeItem('id')
   }
 }
