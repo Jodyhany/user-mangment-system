@@ -31,7 +31,6 @@ export class ProfileComponent implements OnInit{
     showInfo(){
       this._userservices.getuserbyid(this.userid).subscribe({
         next:(res)=>{
-          console.log(res)
           this.userInfo=res
         },error:(err)=>{
           // no error needed

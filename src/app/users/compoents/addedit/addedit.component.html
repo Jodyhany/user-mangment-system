@@ -1,5 +1,3 @@
-    <!--   فاضل هنا -->
-    
     <section class="container">
     <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
     <hr />
@@ -12,7 +10,8 @@
                 <label for="fname">frist name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.status=='INVALID' ?'border-danger':'border-success'"
+                    [class]="userform.get('firstName')?.touched?'border-0':'border-1'"
+                    [class]="userform.get('firstName')?.valid?'border-success ':' border-danger '"
                     id="fname"
                     formControlName="firstName"
                     type="text"
@@ -119,7 +118,7 @@
                 <label for="gender">gender</label>
                 <div class="input-group mb-3">
                     <select
-                    [class]="userform.get('gender')?.status=='INVALID'?' text-danger':'text-success'" 
+                     
                     name="gender"
                     id="gender"
                     class="p-2 border-0 w-100"

@@ -1,8 +1,6 @@
-<form action="#" (submit)="getuserdata()"  class="d-flex justify-content-between p-3 bg-white">
-  <!-- frist i -->
-  <i class="fa-solid fa-circle-left"></i>
+<form action="#" (submit)="getuserdata()"  class="d-flex justify-content-end p-3 bg-white">
   <!-- sec div  -->
-   <div class="d-flex align-items-center">
+   <div class="d-flex align-items-center ">
     <!-- serch -->
      <div class="border border-1  rounded-3">
       <input type="text" (keyup)="getuserdata()" class="border-0" placeholder="search users" id="search" name="search"   [(ngModel)]="search">
@@ -10,7 +8,10 @@
      </div>
     <!-- serch -->
      <!-- i -->
+     <button class="bg-white border-0" (click)="comeingsoon()">
       <i class="mx-2 fa-regular fa-bell"></i>
+
+    </button>       
      <!-- i -->
    </div>
 </form>

@@ -24,18 +24,20 @@ ngOnInit(): void {
   this.GetcurentUser()
 this.getallusers()
 }
+comeingsoon(){
+  this._toaster.info('not implement yet','comeing soon')
+}
 GetcurentUser(){
   this._userservies.getuserbyid(this.CurUser).subscribe({
     next:(res)=>{
      this.AdminUser=res
-     console.log(this.AdminUser)
+    (this.AdminUser)
     }
   })
 }
 DELETEuser(userid:number){
-  console.log(userid)
   this._userservies.userDeleate(userid).subscribe({
-    next:(res)=>{console.log(res)
+    next:(res)=>{
     this._toaster.success('userDeleate','success')
     } , error:(err)=> {
       this._toaster.error(err,'error')
@@ -54,11 +56,9 @@ getallusers(){
   })
 }
 getuserdata(){
-  console.log(this.search)
   this._userservies.usersearch(this.search).subscribe({
     next:(res)=>{
       this.userssearch=res.users
-      console.log(this.userssearch)
     }
   })
 }
