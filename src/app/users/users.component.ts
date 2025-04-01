@@ -25,13 +25,12 @@ ngOnInit(): void {
 this.getallusers()
 }
 comeingsoon(){
-  this._toaster.info('not implement yet','comeing soon')
+  this._toaster.info('not implemt yet','comeing soon')
 }
 GetcurentUser(){
   this._userservies.getuserbyid(this.CurUser).subscribe({
     next:(res)=>{
      this.AdminUser=res
-    (this.AdminUser)
     }
   })
 }
@@ -59,6 +58,7 @@ getuserdata(){
   this._userservies.usersearch(this.search).subscribe({
     next:(res)=>{
       this.userssearch=res.users
+      console.log(this.userssearch)
     }
   })
 }
