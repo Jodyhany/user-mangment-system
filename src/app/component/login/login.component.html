@@ -41,7 +41,7 @@
           <div>
             <div class="input-group mb-3">
               <input
-                (keyup)="checkusername(loginform)"
+                (input)="checkusername(loginform)"
                 type="email"
                 class="form-control"
                 placeholder=" enter your username"
@@ -100,7 +100,7 @@
           <div>
             <div class="input-group mb-3">
               <input
-                (keyup)="checkpassword(loginform)"
+              (input)="checkpassword(loginform)"
                 [type]="isHide === true ? 'password' : 'text'"
                 class="form-control"
                 placeholder="enter your password"

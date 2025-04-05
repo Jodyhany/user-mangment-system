@@ -68,7 +68,7 @@ Adduser(data:FormGroup){
 }
 UpdateUser(id:number,data:FormGroup){
   this._userservices.UpdateUser(this.userid,data.value).subscribe({
-    next:(res)=>{console.log(res)},error:(error)=>{
+    next:(res)=>{},error:(error)=>{
       this._Toastr.error(error,"something went wrong")
     },complete:()=> {
       this._Toastr.success(' user Updated' ,'success')

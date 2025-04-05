@@ -1,3 +1,4 @@
+<!-- بص علي السطر دا وذاكر -->
     <section class="container">
     <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
     <hr />
@@ -10,8 +11,7 @@
                 <label for="fname">frist name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('firstName')?.touched?'border-0':'border-1'"
-                    [class]="userform.get('firstName')?.valid?'border-success ':' border-danger '"
+                     [ngClass]="[userform.get('firstName')?.touched ? 'border-1' : 'border-0', userform.get('firstName')?.valid  ? 'border-success' : 'border-danger']"
                     id="fname"
                     formControlName="firstName"
                     type="text"
@@ -26,7 +26,7 @@
                 <label for="lname">last name</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('lastName')?.status=='INVALID'?' border-danger':'border-success'"
+                    [ngClass]="[userform.get('lastName')?.touched ? 'border-1' : 'border-0', userform.get('lastName')?.valid  ? 'border-success' : 'border-danger']"
                     type="text"
                     formControlName="lastName"
                     id="lname"
@@ -41,7 +41,7 @@
                 <label for="email">email</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('email')?.status=='INVALID'?' border-danger':'border-success'"
+                    [ngClass]="[userform.get('email')?.touched ? 'border-1' : 'border-0', userform.get('email')?.valid  ? 'border-success' : 'border-danger']"
                     type="email"
                     id="email"
                     formControlName="email"
@@ -57,7 +57,7 @@
                 <div class="input-group mb-3">
 
                     <input 
-                    [class]="userform.get('age')?.status=='INVALID'?' border-danger':'border-success'"
+                    [ngClass]="[userform.get('age')?.touched ? 'border-1' : 'border-0', userform.get('age')?.valid  ? 'border-success' : 'border-danger']"
                     type="number"
                     id="age"
                     formControlName="age"
@@ -72,7 +72,7 @@
                 <label for="phone number">phone number</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('phone')?.status=='INVALID'?' border-danger':'border-success'"
+                    [ngClass]="[userform.get('phone')?.touched ? 'border-1' : 'border-0', userform.get('phone')?.valid  ? 'border-success' : 'border-danger']"
                     type="text"
                     id="phone number"
                     formControlName="phone"
@@ -87,7 +87,7 @@
                 <label for="birthDate">birthDate</label>
                 <div class="input-group mb-3">
                     <input 
-                    [class]="userform.get('birthDate')?.status=='INVALID'?' border-danger':'border-success'"
+                    [ngClass]="[userform.get('birthDate')?.touched ? 'border-1' : 'border-0', userform.get('birthDate')?.valid  ? 'border-success' : 'border-danger']"
                     type="text"
                     class="form-control"
                     formControlName="birthDate"
@@ -102,7 +102,7 @@
                 <label for="Username">username</label>
                 <div class="input-group mb-3">
                     <input
-                    [class]="userform.get('userName')?.status=='INVALID'?' border-danger':'border-success'" 
+                    [ngClass]="[userform.get('userName')?.touched ? 'border-1' : 'border-0', userform.get('userName')?.valid  ? 'border-success' : 'border-danger']" 
                     type="text"
                     class="form-control"
                     id="Username "
