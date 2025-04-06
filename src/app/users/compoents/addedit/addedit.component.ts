@@ -4,6 +4,7 @@ import { UsersService } from '../../services/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Users } from '../../interface/users';
+import { first } from 'rxjs';
 @Component({
   selector: 'app-addedit',
   templateUrl: './addedit.component.html',
@@ -15,14 +16,17 @@ export class AddeditComponent  implements OnInit{
   userform=new FormGroup({
     firstName:new FormControl(null,[Validators.required,]),
     lastName:new FormControl(null,[Validators.required,]),
-    email:new FormControl(null,[Validators.required,]),
+    email:new FormControl(null,[Validators.required,Validators.email]),
     gender:new FormControl(null,[Validators.required,]),
     image:new FormControl(null),
     userName:new FormControl(null,[Validators.required,]),
     phone:new FormControl(null,[Validators.required,]),
     birthDate:new FormControl(null,[Validators.required,]),
     age:new FormControl(null,[Validators.required,]),
+
   })
+  inputreq:string=`this input can't be empty`
+  inputemail:string='enter vaild mail'
 constructor(private _userservices:UsersService,
   private _Toastr:ToastrService,
   private _router:Router,
@@ -79,8 +83,8 @@ UpdateUser(id:number,data:FormGroup){
    })
 }
 sendData(data:FormGroup){
+  
 if(this.userid){
   this.UpdateUser(this.userid,this.userform)
 }  else{this.Adduser(this.userform)}
-
 }}

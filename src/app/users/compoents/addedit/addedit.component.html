@@ -1,47 +1,90 @@
-<!-- بص علي السطر دا وذاكر -->
+    <!-- بص علي السطر دا وذاكر -->
     <section class="container">
-    <p class="fw-bold h1">{{userid?"Edit User":" Add User"}}</p>
+    <p class="fw-bold h1">{{ userid ? "Edit User" : " Add User" }}</p>
     <hr />
-    <div class=" p-2 ">
+    <div class="p-2">
         <div class="row">
         <div class="col-md-6 mx-auto bg-white w-75">
             <form action="#" [formGroup]="userform" (ngSubmit)="sendData(userform)">
-            <div class="row  p-3 mx-auto">
+            <div class="row p-3 mx-auto">
                 <div class="col-md-6">
-                <label for="fname">frist name</label>
+                <label for="fname">first name</label>
                 <div class="input-group mb-3">
-                    <input 
-                     [ngClass]="[userform.get('firstName')?.touched ? 'border-1' : 'border-0', userform.get('firstName')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('firstName')?.touched
+                        ? 'border-1'
+                        : 'border-0',
+                        userform.get('firstName')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     id="fname"
                     formControlName="firstName"
                     type="text"
-                    class="form-control "
+                    class="form-control"
                     placeholder="Enter your First Name"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('firstName')?.touched &&
+                    !userform.get('firstName')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('firstName')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
                 <div class="col-md-6">
                 <label for="lname">last name</label>
                 <div class="input-group mb-3">
-                    <input 
-                    [ngClass]="[userform.get('lastName')?.touched ? 'border-1' : 'border-0', userform.get('lastName')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('lastName')?.touched ? 'border-1' : 'border-0',
+                        userform.get('lastName')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="text"
                     formControlName="lastName"
                     id="lname"
                     class="form-control"
                     placeholder="Enter your Last Name"
-                    aria-label="Username"
+                    aria-label="lastName"
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('lastName')?.touched &&
+                    !userform.get('lastName')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('lastName')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
                 <div class="col-md-6">
                 <label for="email">email</label>
                 <div class="input-group mb-3">
-                    <input 
-                    [ngClass]="[userform.get('email')?.touched ? 'border-1' : 'border-0', userform.get('email')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('email')?.touched ? 'border-1' : 'border-0',
+                        userform.get('email')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="email"
                     id="email"
                     formControlName="email"
@@ -51,13 +94,36 @@
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('email')?.touched &&
+                    !userform.get('email')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('email')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('email')?.errors?.['email']"
+                    >
+                    {{ inputemail }}
+                    </p>
+                </ng-container>
                 </div>
                 <div class="col-md-6">
                 <label for="age">Age</label>
                 <div class="input-group mb-3">
-
-                    <input 
-                    [ngClass]="[userform.get('age')?.touched ? 'border-1' : 'border-0', userform.get('age')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('age')?.touched ? 'border-1' : 'border-0',
+                        userform.get('age')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="number"
                     id="age"
                     formControlName="age"
@@ -67,12 +133,30 @@
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('age')?.touched && !userform.get('age')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('age')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
+
                 <div class="col-md-6">
                 <label for="phone number">phone number</label>
                 <div class="input-group mb-3">
-                    <input 
-                    [ngClass]="[userform.get('phone')?.touched ? 'border-1' : 'border-0', userform.get('phone')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('phone')?.touched ? 'border-1' : 'border-0',
+                        userform.get('phone')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="text"
                     id="phone number"
                     formControlName="phone"
@@ -82,12 +166,32 @@
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('phone')?.touched &&
+                    !userform.get('phone')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('phone')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
                 <div class="col-md-6">
                 <label for="birthDate">birthDate</label>
                 <div class="input-group mb-3">
-                    <input 
-                    [ngClass]="[userform.get('birthDate')?.touched ? 'border-1' : 'border-0', userform.get('birthDate')?.valid  ? 'border-success' : 'border-danger']"
+                    <input
+                    [ngClass]="[
+                        userform.get('birthDate')?.touched
+                        ? 'border-1'
+                        : 'border-0',
+                        userform.get('birthDate')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="text"
                     class="form-control"
                     formControlName="birthDate"
@@ -97,12 +201,31 @@
                     aria-describedby="basic-addon1"
                     />
                 </div>
+
+                <ng-container
+                    *ngIf="
+                    userform.get('birthDate')?.touched &&
+                    !userform.get('birthDate')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('birthDate')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
                 <div class="col-md-6" *ngIf="!userid">
                 <label for="Username">username</label>
                 <div class="input-group mb-3">
                     <input
-                    [ngClass]="[userform.get('userName')?.touched ? 'border-1' : 'border-0', userform.get('userName')?.valid  ? 'border-success' : 'border-danger']" 
+                    [ngClass]="[
+                        userform.get('userName')?.touched ? 'border-1' : 'border-0',
+                        userform.get('userName')?.valid
+                        ? 'border-success'
+                        : 'border-danger'
+                    ]"
                     type="text"
                     class="form-control"
                     id="Username "
@@ -112,13 +235,30 @@
                     aria-describedby="basic-addon1"
                     />
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('userName')?.touched &&
+                    !userform.get('userName')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('userName')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
                 <!-- هشيلها لما اعمل ايديت -->
                 <div class="col-md-6" *ngIf="!userid">
                 <label for="gender">gender</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 "   [class]="[
+                userform.get('gender')?.touched ? 'border' : 'border-0',
+                userform.get('gender')?.valid
+                ? 'border-success'
+                : 'border-danger'
+            ]">
                     <select
-                     
                     name="gender"
                     id="gender"
                     class="p-2 border-0 w-100"
@@ -135,11 +275,24 @@
                     </option>
                     </select>
                 </div>
+                <ng-container
+                    *ngIf="
+                    userform.get('gender')?.touched &&
+                    !userform.get('gender')?.valid
+                    "
+                >
+                    <p
+                    class="text-danger"
+                    *ngIf="userform.get('gender')?.errors?.['required']"
+                    >
+                    {{ inputreq }}
+                    </p>
+                </ng-container>
                 </div>
-                <div class="col-md-12" >
+                <div class="col-md-12">
                 <div class="input-group mb-3 justify-content-center my-2">
                     <button class="btn btn-warning w-50 text-white p-2">
-                    {{userid?'update':'Add'}} User
+                    {{ userid ? "update" : "Add" }} User
                     </button>
                 </div>
                 </div>
