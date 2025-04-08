@@ -9,8 +9,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-  userid:number= this._activeroute.snapshot.params['id']
-  userInfo:any
   disabledinput:boolean=false
   showinfo:FormGroup=new FormGroup({
     firstName:new FormControl(null),
