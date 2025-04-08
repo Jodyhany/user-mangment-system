@@ -7,7 +7,6 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-
 export class UsersComponent implements OnInit {
   
 constructor(private _userservies:UsersService,
@@ -28,7 +27,7 @@ comeingsoon(){
   this._toaster.info('not implemt yet','comeing soon')
 }
 GetcurentUser(){
-  this._userservies.getuserbyid(this.CurUser).subscribe({
+  this._userservies.getAutUser().subscribe({
     next:(res)=>{
      this.AdminUser=res
     }
@@ -46,7 +45,6 @@ DELETEuser(userid:number){
   })
 
 }
-
 getallusers(){
   this._userservies.getUsers().subscribe({
     next:(res)=>{

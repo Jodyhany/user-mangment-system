@@ -29,21 +29,17 @@ export class ProfileComponent implements OnInit{
         this.showInfo()
     }
     showInfo(){
-      this._userservices.getuserbyid(this.userid).subscribe({
+      this._userservices.getAutUser().subscribe({
         next:(res)=>{
-          this.userInfo=res
-        },error:(err)=>{
-          // no error needed
-        },complete:()=>{
           this.showinfo.patchValue({
-            firstName:this.userInfo.firstName,
-            lastName:this.userInfo.lastName,
-            age:this.userInfo.age,
-            phone:this.userInfo.phone,
-            birthDate:this.userInfo.birthDate,
-          email:this.userInfo.email,
-          })
-        }
+              firstName:res.firstName,
+              lastName:res.lastName,
+              age:res.age,
+              phone:res.phone,
+              birthDate:res.birthDate,
+            email:res.email,
+            })
+        } , error:(err)=>{console.log(`aut error ${err}`)}
       })
     } 
 }

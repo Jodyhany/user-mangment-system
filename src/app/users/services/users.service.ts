@@ -12,24 +12,24 @@ export class UsersService {
 
   constructor(private _http:HttpClient){}
   Adduser(data:FormGroup):Observable<any>{
-   return this._http.post(`https://dummyjson.com/users/add`,data)
+   return this._http.post(`users/add`,data)
   }
   UpdateUser(id:number,data:FormGroup):Observable<any>{
-   return this._http.put(`https://dummyjson.com/users/${id}`,data)
+   return this._http.put(`users/${id}`,data)
   }
     usersearch(search:string):Observable<any>{
-    return this._http.get(`https://dummyjson.com/users/search?q=${search}`)
+    return this._http.get(`users/search?q=${search}`)
   }
   getUsers():Observable<any>{
-    return this._http.get('https://dummyjson.com/users')
-  }
-  getuser():Observable<any>{
-    return this._http.get('https://dummyjson.com/users/1')
+    return this._http.get('users')
   }
   getuserbyid(id:number):Observable<any>{
-    return this._http.get(`https://dummyjson.com/users/${id}`)
+    return this._http.get(`users/${id}`)
   }
   userDeleate(id:number):Observable<any>{
-    return this._http.delete(`https://dummyjson.com/users/${id}`)
+    return this._http.delete(`users/${id}`)
+  }
+  getAutUser():Observable<any>{
+    return this._http.get('auth/me')
   }
   }

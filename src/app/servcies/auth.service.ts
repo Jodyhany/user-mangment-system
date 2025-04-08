@@ -11,6 +11,6 @@ export class AuthService {
   constructor(private _http:HttpClient) {
    }
    onloging(data:FormGroup):Observable<any>{
-    return this._http.post('https://dummyjson.com/auth/login',data)
+    return this._http.post('auth/login',data)
    }
 }

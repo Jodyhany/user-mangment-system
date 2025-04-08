@@ -53,7 +53,7 @@
           <ng-container *ngIf="userssearch.length===0;">
             <p  class="text-center" > no users found</p>
           </ng-container>
-          <tr
+          <tr  [class]="user.id==AdminUser.id?'d-none':''"
           class="rounded bg-white"
           *ngFor="
             let user of userssearch
@@ -64,6 +64,7 @@
                   }
           "
         >
+      
           <td class="p-2">{{ user.firstName }} {{ user.lastName }}</td>
           <td class="p-2">{{ user.email }}</td>
           <td class="p-2">{{ user.phone }}</td>
@@ -80,7 +81,7 @@
         </tr>
         </ng-container>
         <ng-template #defaultUsers>
-          <tr
+          <tr [class]="user.id==AdminUser.id?'d-none':''"
           class="rounded bg-white"
           *ngFor="
             let user of users

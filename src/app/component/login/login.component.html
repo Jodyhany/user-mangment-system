@@ -62,42 +62,11 @@
               </span>
             </div>
           </div>
-          <div class="alert text-start">
-        
-            <ul style="list-style: none ;" *ngIf="loginform.get('username')?.touched else defaultvali  ">
-                  <li>
-              <i
-                [class]="
-                  usernamereq
-                    ? ' fa-solid fa-circle-check text-success'
-                    : 'fa-solid fa-circle-xmark text-danger '
-                "
-              ></i>
-              username required
-            </li>
-            <li>
-              <i
-                [class]="
-                  userminlenght
-                    ? ' fa-solid fa-circle-check text-success'
-                    : 'fa-solid fa-circle-xmark text-danger '
-                "
-              ></i>
-              username must be at least 6
-            </li>
-            </ul>
-            <ng-template #defaultvali>
-              <ul>
-                    <li>
-                username required
-              </li>
-              <li>
-                username must be at least 6
-              </li>
-              </ul>
-            </ng-template>
-          </div>
-          <div>
+         <ng-container   *ngIf="loginform.get('username')?.touched">
+          <p class="text-danger" *ngIf="loginform.get('username')?.errors?.['required']">Username required </p>
+          <p class="text-danger" *ngIf="loginform.get('username')?.errors?.['minlength']">Username must be more 6 </p>
+         </ng-container>
+          <div class="my-5">
             <div class="input-group mb-3">
               <input
               (input)="checkpassword(loginform)"
@@ -121,57 +90,12 @@
                 </span>
               </span>
             </div>
-            <div class="alert text-start">
-              <ul style="list-style: none ;" *ngIf="loginform.get('password')?.touched else defaultvalipass ">
-                <li>
-                  <i
-                    [class]="
-                      passreq
-                        ? ' fa-solid fa-circle-check text-success'
-                        : 'fa-solid fa-circle-xmark text-danger '
-                    "
-                  >
-                  </i>
-                  password is required
-                </li>
-                <li>
-                  <i
-                    [class]="
-                      passlengthmin
-                        ? ' fa-solid fa-circle-check text-success'
-                        : 'fa-solid fa-circle-xmark text-danger '
-                    "
-                  >
-                  </i>
-                  password must be min 8
-                </li>
-                <li>
-                  <i
-                    [class]="
-                      passlengthmax
-                        ? ' fa-solid fa-circle-check text-success'
-                        : 'fa-solid fa-circle-xmark text-danger '
-                    "
-                  >
-                  </i>
-                  password must be max 16
-                </li>
-          </ul>
-          <ng-template #defaultvalipass>
-            <ul>
-                  <li>
-              password required
-            </li>
-            <li>
-              password must be at least 8
-            </li>
-            <li>
-              password must be at maxiam 16
-            </li>
-            </ul>
-          </ng-template>
-            </div>
-            </div>
+            <ng-container  *ngIf="loginform.get('password')?.touched">
+              <p class="text-danger" *ngIf="loginform.get('password')?.errors?.['required']">password required </p>
+              <p class="text-danger" *ngIf="loginform.get('password')?.errors?.['minlength']">password must be more 8 </p>
+              <p class="text-danger" *ngIf="loginform.get('password')?.errors?.['maxlength']">password must be less 16 </p>
+            </ng-container>
+           </div>
           <button
             type="submit"
             [disabled]="loginform.invalid"

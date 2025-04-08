@@ -10,7 +10,7 @@ const routes:Routes=[
   {path:'',component:UsersComponent,title:'show users'},
   {path:'add',component:AddeditComponent,title:'add user'},
   {path:'edit/:id',component:AddeditComponent,title:'add user'},
-  {path:'profile/:id',component:ProfileComponent,title:'show info'},
+  {path:'profile',component:ProfileComponent,title:'show info'},
 ]
 @NgModule({
   declarations: [
