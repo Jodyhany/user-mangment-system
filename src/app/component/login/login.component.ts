@@ -44,13 +44,6 @@ formvalid(data:FormGroup){
   this._auth.onloging(data.value).subscribe({
     next:(res)=>{
       localStorage.setItem('token',res.accessToken)
-      localStorage.setItem('id',res.id)
-      localStorage.setItem('fName',res.firstName)
-      localStorage.setItem('lName',res.lastName)
-      localStorage.setItem('username',res.username)
-      localStorage.setItem('email',res.email)
-      localStorage.setItem('gender',res.gender)
-      localStorage.setItem('img',res.image)
       this._toaster.success(`welcome back ${res.firstName} ${res.lastName}`,'login suceessfully')
     },error:(err)=>{
       this._toaster.error('not found this account please try the default account or click info',err.error.message,)

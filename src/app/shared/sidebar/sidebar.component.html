@@ -7,11 +7,11 @@
 <!--  end logo -->
  <!--  start info -->
   <div class="d-flex justify-content-center text-center flex-column p-4" >
-    <img class="rounded-circle " src="../../../assets/images/profile-img.png" [alt]="username">
+    <img class="rounded-circle " src="../../../assets/images/profile-img.png" [alt]="fullname">
     <!--  start text -->
      <div class="my-4" >
       <p class="fs-4 fw-bold">{{ fullname }}</p>
-      <p class="text-warning">Admin</p>
+      <p class="text-warning fs-3">{{role}}</p>
      </div>
   </div>
  <!-- end info -->
@@ -102,7 +102,7 @@
         <a routerLink="/home/users/add" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fas fa-plus mx-3"></i>Add User</a>
       </li>
       <li class="fs-6 my-4 p-1">
-        <a routerLink="/home/users/profile" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fa-user mx-3"></i>Profile </a>
+        <a [routerLink]="['/home/users/profile',id]" class="p-2" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-li"><i class="fa-regular fa-user mx-3"></i>Profile </a>
       </li>
     </ul>
     <div class="text-center">

@@ -21,7 +21,7 @@ export class UsersService {
     return this._http.get(`users/search?q=${search}`)
   }
   getUsers():Observable<any>{
-    return this._http.get('users')
+    return this._http.get('users?limit=100')
   }
   getuserbyid(id:number):Observable<any>{
     return this._http.get(`users/${id}`)

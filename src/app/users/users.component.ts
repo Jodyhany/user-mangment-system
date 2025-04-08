@@ -19,6 +19,7 @@ users:Users[]=[]
 AdminUser:any
 search:string=''
 userssearch:Users[]=[]
+userDeleated:number=0
 ngOnInit(): void {
   this.GetcurentUser()
 this.getallusers()
@@ -37,6 +38,8 @@ DELETEuser(userid:number){
   this._userservies.userDeleate(userid).subscribe({
     next:(res)=>{
     this._toaster.success('userDeleate','success')
+
+    this.userDeleated=res.id
     } , error:(err)=> {
       this._toaster.error(err,'error')
     }, complete:()=>{
